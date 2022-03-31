@@ -1,3 +1,8 @@
+//导入（Import）
+import 'dart:math';
+//import 'package:test01/test01.dart';
+//import 'path/to/00_helloworld.dart';
+
 //变量 https://dart.cn/samples#variables
 void variables(){
   var name='Voyager I';
@@ -48,6 +53,9 @@ void functions(){
   var flybyObjects=['Jupiter','Saturn','Uranus','Neptune'];
   flybyObjects.where((name) => name.contains('turn')).forEach(print);
 }
+
+//注释 ///文档注释 /* */
+
 void main(List<String> args){
   variables();  //变量
   flow_control(); //流程控制语句
