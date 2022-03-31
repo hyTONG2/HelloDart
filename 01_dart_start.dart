@@ -34,8 +34,23 @@ void flow_control(){
    }
    print('year is $year');
 }
+
+//函数 https://dart.cn/samples#functions
+void functions(){
+  int fibonacci(int n){
+    if (n == 0 || n == 1) return n;
+    return fibonacci(n-1)+fibonacci(n-2);
+  }
+  var result=fibonacci(20);
+  print('The result is $result');
+
+  //（胖箭头）简写语法用于仅包含一条语句的函数
+  var flybyObjects=['Jupiter','Saturn','Uranus','Neptune'];
+  flybyObjects.where((name) => name.contains('turn')).forEach(print);
+}
 void main(List<String> args){
-  //变量
-  variables();
-  flow_control();
+  variables();  //变量
+  flow_control(); //流程控制语句
+  functions(); //函数
+ 
 }
