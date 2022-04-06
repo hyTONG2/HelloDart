@@ -54,11 +54,55 @@ void functions(){
   flybyObjects.where((name) => name.contains('turn')).forEach(print);
 }
 
+
+//类（class） https://dart.cn/samples#classes
+class Spacecraft {
+  String name;
+  DateTime? launchDate;
+
+  int? get launchYear => launchDate?.year;
+
+  Spacecraft(this.name, this.launchDate) {
+    // Initialization code goes here.
+  }
+
+  Spacecraft.unlaunched(String name) : this(name, null);
+
+  // Method.
+  void describe() {
+    print('Spacecraft: $name');
+   
+    var launchDate = this.launchDate;
+    if (launchDate != null) {
+      int years = DateTime.now().difference(launchDate).inDays ~/ 365;
+      print('Launched: $launchYear ($years years ago)');
+    } else {
+      print('Unlaunched');
+    }
+  }
+}
+
+//拓展类（继承）https://dart.cn/samples#inheritance
+class Orbiter extends Spacecraft{
+  double altitude;
+  Orbiter(String name,DateTime launchDate,this.altitude)
+      :super(name,launchDate);
+}
+
 //注释 ///文档注释 /* */
 
 void main(List<String> args){
   variables();  //变量
   flow_control(); //流程控制语句
   functions(); //函数
+
+  //类
+  var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));
+  voyager.describe();
+  var voyager3 = Spacecraft.unlaunched('Voyager III');
+  voyager3.describe();
+  //拓展类
+  var voyager4 = Orbiter('Voyager IV',DateTime(1960,12,12),2800.0);
+  voyager4.describe();
  
 }
