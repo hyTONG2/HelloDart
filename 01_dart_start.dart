@@ -54,6 +54,7 @@ void functions(){
   flybyObjects.where((name) => name.contains('turn')).forEach(print);
 }
 
+//注释 ///文档注释 /* */
 
 //类（class） https://dart.cn/samples#classes
 class Spacecraft {
@@ -89,7 +90,19 @@ class Orbiter extends Spacecraft{
       :super(name,launchDate);
 }
 
-//注释 ///文档注释 /* */
+//Mixins (在多个类层次结构中重用代码的方法) https://dart.cn/samples#mixins
+mixin Piloted{
+  int astronauts=1;
+  void describeCrew(){
+    print('Number of astronaunts: $astronauts');
+  }
+}
+//使用 Mixin 的方式继承这个类就可将该类中的功能添加给其它类
+//PilotedCraft 类中就包含了 astronauts 字段以及 describeCrew() 方法
+class PilotedCraft extends Spacecraft with Piloted{
+  PilotedCraft(String name,DateTime launchDate)
+      :super(name,launchDate);
+}
 
 void main(List<String> args){
   variables();  //变量
@@ -101,8 +114,14 @@ void main(List<String> args){
   voyager.describe();
   var voyager3 = Spacecraft.unlaunched('Voyager III');
   voyager3.describe();
+
   //拓展类
   var voyager4 = Orbiter('Voyager IV',DateTime(1960,12,12),2800.0);
   voyager4.describe();
- 
+
+  //Mixins
+  var pilotedcra=PilotedCraft('PilotedCraft IIV',DateTime(1967,2,12));
+  pilotedcra.describe();
+  pilotedcra.describeCrew();
+
 }
