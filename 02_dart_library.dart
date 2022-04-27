@@ -101,6 +101,27 @@ void Strings_and_regular_expressions() {
 
   var fullString=sb.toString();
   assert(fullString=='Use a StringBuffer for efficient string creation.');
+
+  //正则表达式
+  //RegExp 类提供与 JavaScript 正则表达式相同的功能
+  //使用正则表达式可以对字符串进行高效搜索和模式匹配
+  var numbers=RegExp(r'\d+');
+
+  var allCharacters='llamas live fifteen to twenty years';
+  var someDigits='llamas live 15 to 20 years';
+
+  assert(!allCharacters.contains(numbers));
+  assert(someDigits.contains(numbers));
+
+  var exedOut=someDigits.replaceAll(numbers,'XX');
+  assert(exedOut=='llamas live XX to XX years');
+
+  // Check whether the reg exp has a match in a string.
+  assert(numbers.hasMatch(someDigits));
+  for(final match in numbers.allMatches(someDigits)){
+    print(match.group(0));   //15,20
+  }
+
 }
 
 void main(List<String> args) {
