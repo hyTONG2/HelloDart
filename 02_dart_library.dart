@@ -121,9 +121,57 @@ void Strings_and_regular_expressions() {
   for(final match in numbers.allMatches(someDigits)){
     print(match.group(0));   //15,20
   }
-
 }
 
+//集合 https://dart.cn/guides/libraries/library-tour#collections
+//Dart 附带了核心集合 API ，其中包括 list、set 和 map 类
+
+//Lists
+void Lists() {
+  print('\n');
+  print('*' * 40);
+  print('Lists');
+  print('*' * 40);
+  // Create an empty list of strings.
+  var grains=<String>[];
+  assert(grains.isEmpty);
+  // Create a list using a list literal.
+  var fruits=['apples','oranges'];
+  // Add to a list.
+  fruits.add('kiwis');
+  //Add multiple items to a list.
+  fruits.addAll(['grapes','bananas']);
+
+  assert(fruits.length==5);
+  // Remove a single item.
+  var appleIndex=fruits.indexOf('apples');
+  //删除fruits的第 appleIndex+1 个元素——>'apples'
+  fruits.removeAt(appleIndex);
+  assert(fruits.length==4);
+
+  fruits.clear();
+  assert(fruits.isEmpty);
+
+  // You can also create a List using one of the constructors.
+  var vegetables=List.filled(99,'broccoli');
+  assert(vegetables.every((v) => v == 'broccoli'));
+
+  //使用 indexOf() 方法查找一个对象在 list 中的下标值
+  var fruits=['apples','oranges'];
+  assert(fruits[0]=='apples');
+  assert(fruits.indexOf('apples')==0);
+
+  //使用 sort() 方法排序一个 list 
+  var fruits=['bananas','apples','oranges'];
+  fruits.sort((a,b)=>a.compareTo(b));
+  assert(fruits[0]='apples');
+
+  //列表是参数化类型（泛型），因此可以指定 list 应该包含的元素类型：
+  var fruits=<String>[];
+  fruits.add('apples');
+  var fruit=fruits[0];
+  assert(fruit is String);
+}
 void main(List<String> args) {
   //控制台打印
   Console_printing();
