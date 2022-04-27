@@ -157,20 +157,27 @@ void Lists() {
   assert(vegetables.every((v) => v == 'broccoli'));
 
   //使用 indexOf() 方法查找一个对象在 list 中的下标值
-  var fruits=['apples','oranges'];
   assert(fruits[0]=='apples');
   assert(fruits.indexOf('apples')==0);
 
   //使用 sort() 方法排序一个 list 
-  var fruits=['bananas','apples','oranges'];
+  fruits=['bananas','apples','oranges'];
   fruits.sort((a,b)=>a.compareTo(b));
-  assert(fruits[0]='apples');
+  assert(fruits[0]=='apples');
 
   //列表是参数化类型（泛型），因此可以指定 list 应该包含的元素类型：
-  var fruits=<String>[];
-  fruits.add('apples');
-  var fruit=fruits[0];
+  var fruits1=<String>[];
+  fruits1.add('apples');
+  var fruit=fruits1[0];
   assert(fruit is String);
+}
+
+//Sets
+void Sets() {
+  print('\n');
+  print('*' * 40);
+  print('Sets');
+  print('*' * 40);
 }
 void main(List<String> args) {
   //控制台打印
@@ -179,4 +186,6 @@ void main(List<String> args) {
   Numbers();
   //字符和正则表达式
   Strings_and_regular_expressions();
+  //集合——Lists
+  Lists();
 }
