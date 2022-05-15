@@ -1,4 +1,4 @@
-//Write command-line apps
+/* //Write command-line apps
 //https://dart.dev/tutorials/server/cmdline
 
 //Overview（概述） of the dcat app code
@@ -56,4 +56,4 @@ Future<void> _handleError(String path) async {
 //https://dart.cn/tutorials/server/cmdline#getting-dependencies
 
 //Running dcat
-//https://dart.cn/tutorials/server/cmdline#running-dcat
+//https://dart.cn/tutorials/server/cmdline#running-dcat */
