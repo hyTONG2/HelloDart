@@ -1,8 +1,6 @@
 /* //Write command-line apps
 //https://dart.dev/tutorials/server/cmdline
 
-//Overview（概述） of the dcat app code
-// https://dart.cn/tutorials/server/cmdline#overview-of-the-dcat-app-code
 import 'dart:io';
 import 'dart:convert';
 
@@ -56,4 +54,4 @@ Future<void> _handleError(String path) async {
 //https://dart.cn/tutorials/server/cmdline#getting-dependencies
 
 //Running dcat
-//https://dart.cn/tutorials/server/cmdline#running-dcat */
+//https://dart.cn/tutorials/server/cmdline#running-dcat  */
