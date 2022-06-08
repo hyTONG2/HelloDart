@@ -9,19 +9,15 @@ import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:shelf_router/shelf_router.dart' as shelf_router;
 import 'package:shelf_static/shelf_static.dart' as shelf_static;
 
-Future main() async {
+Future<void> main(List<String> args) async {
   // 从环境变量里读取 PORT 变量用作端口，否则用 ‘8080’
   // https://cloud.google.com/run/docs/reference/container-contract#port
   //?? 快捷操作符 (https://blog.csdn.net/nimeghbia/article/details/100921620)
   final port = int.parse(Platform.environment['PORT'] ?? '8080');
 
-  // Serve files from the file system.
-  final _staticHandler =
-      shelf_static.createStaticHandler('public', defaultDocument: 'index.html');
-
   // 一个请求队列 (https://pub.dev/documentation/shelf/latest/shelf/Cascade-class.html)
   final cascade = Cascade()
-      // First, serve files from the 'public' directory
+      // First, serve files from the '/home/group/public' directory
       .add(_staticHandler);
 /*   // If a corresponding file is not found, send requests to a `Router`
   .add(_router); */
@@ -35,3 +31,7 @@ Future main() async {
   print(
       'Serving at http://${server.address.host}:${server.port},CTRL+C to stop.');
 }
+
+// Serve files from the file system.
+final _staticHandler =
+    shelf_static.createStaticHandler('public', defaultDocument: 'index.html');
